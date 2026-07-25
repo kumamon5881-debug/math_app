@@ -59,29 +59,30 @@
     }
 
     /* カード本体（画像表示用） */
-    .card {
-      width: 100%;
-      height: 50vh; /* テキストではなく画像なので高さを固定しつつレスポンシブに */
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      box-sizing: border-box;
-      padding: 10px;
-      cursor: pointer;
-      transition: all 160ms ease;
-    }
+.card {
+  width: 100%;
+  height: 65vh; /* ★枠自体の高さも少し広げて収まりやすくします */
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 10px;
+  cursor: pointer;
+  transition: all 160ms ease;
+  overflow: hidden; /* ★枠からはみ出た部分をカット */
+}
 
-    /* 画像が枠内に綺麗に収まるようにする設定 */
-    .card img {
-      max-width: 100%;
-      max-height: 180%;
-      object-fit: contain;
-      border-radius: 8px;
-      pointer-events: none; /* 画像自体のドラッグ等を防止 */
-    }
+/* 画像の設定（縦だけ180%に伸ばす） */
+.card img {
+  width: 100%;          /* 横幅は枠いっぱいに */
+  height: 180%;         /* ★高さを180%に拡大 */
+  object-fit: fill;     /* ★縦横比を無視して指定サイズいっぱいに引き伸ばす */
+  border-radius: 8px;
+  pointer-events: none;
+}
 
     /* 進捗（中央表示） */
     .progress {
